@@ -1,0 +1,38 @@
+{% extends 'admin/admin_index.html' %}
+{% block body %}
+
+<body><form action="/view_feedback_search_post#abc" method="post">
+ <table class="pull-right">
+  <tr>
+    <td>From </td>
+    <td><input type="date" name="textfield2" id="textfield2" class="form-control" /></td>
+    <td>To</td>
+    <td><input type="date" name="textfield3" id="textfield3" class="form-control" /></td>
+    <td><input type="submit" name="button2" id="button2" value="SEARCH" class="btn btn-success" /></td>
+  </tr>
+</table><br>
+
+    <table class="table table-bordered">
+    <thead class="thead-light">
+
+  <tr style="background-color: #9fcdff">
+    <th width="59" scope="col">Slno</th>
+          <th width="74" scope="col">Date</th>
+
+    <th width="74" scope="col">User Info</th>
+    <th width="45" scope="col">Feedback</th>
+  </tr>
+    </thead>
+    {% for i in data %}
+  <tr>
+    <td>{{ loop.index }}</td>
+      <td>{{ i['date'] }}</td>
+    <td>&nbsp;{{ i['u_name'] }}<br>{{ i['email'] }}<br>{{ i['place'] }}</td>
+    <td>{{ i['feedback'] }}</td>
+  </tr>
+    {% endfor %}
+</table>
+</form>
+</body>
+{% endblock %}
+

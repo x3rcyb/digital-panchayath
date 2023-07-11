@@ -1,0 +1,39 @@
+{% extends 'councillor/councilor_index.html' %}
+{% block body %}
+
+<body><form action="/view_mayor_pjct_policy_search_post" method="post">
+  <table class="pull-right">
+  <tr>
+    <th scope="col" width="1000"><input type="text" name="textfield3" id="textfield3" class="form-control"/></th>
+    <th scope="col"><input type="submit" name="button2" id="button2" value="SEARCH" class="btn btn-success"/></th>
+  </tr>
+</table><br>
+
+<table class="table table-bordered">
+    <thead class="thead-light">
+    <tr>
+    <th scope="col">Sl no</th>
+    <th scope="col">Date</th>
+        <th scope="col">Mayor Info</th>
+
+    <th scope="col">Title</th>
+    <th scope="col">Description</th>
+    <th scope="col">Total funding</th>
+
+  </tr>
+    </thead>
+    {% for i in data %}
+  <tr>
+    <td>&nbsp;{{ loop.index }}</td>
+    <td>&nbsp;{{ i['created_date'] }}</td>
+      <td>{{ i['p_name'] }}<br>{{ i['email'] }}<br>{{ i['phone'] }}</td>
+    <td>&nbsp;{{ i['title'] }}</td>
+    <td>&nbsp;{{ i['description'] }}</td>
+    <td>&nbsp;{{ i['total_funding'] }}</td>
+
+  </tr>
+    {% endfor %}
+</table>
+</form>
+</body>
+{% endblock %}

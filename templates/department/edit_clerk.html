@@ -1,0 +1,77 @@
+{% extends 'department/department_index.html' %}
+{% block body %}
+
+<body>
+<form action="/edit_clerk_dept_post" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  <table width="233" height="327" border="1">
+    <tr><input type="hidden"name="clerk_id"value="{{ data['clerk_id'] }}">
+      <td>Name</td>
+      <td><input type="text" name="textfield" id="textfield" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>Gender</td>
+      <td><p>
+        <label>
+          <input type="radio" name="RadioGroup1" value="male" id="RadioGroup1_0" class="form-control" checked/>
+          male</label>
+        <br />
+        <label>
+          <input type="radio" name="RadioGroup1" value="female" id="RadioGroup1_1" class="form-control"/>
+          female</label>
+        <br />
+        <label>
+          <input type="radio" name="RadioGroup1" value="others" id="RadioGroup1_2" class="form-control"/>
+          others</label>
+        <br />
+      </p></td>
+    </tr>
+    <tr>
+      <td>Dob</td>
+      <td><input type="date" name="textfield2" id="textfield2" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>Photo</td>
+      <td><input type="file" name="fileField" id="fileField" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>House Name</td>
+      <td><input type="text" name="textfield3" id="textfield3" class="form-control"required/></td>
+    </tr>
+    <tr>
+      <td>Place</td>
+      <td><input type="text" name="textfield4" id="textfield4" class="form-control"required/></td>
+    </tr>
+    <tr>
+      <td>City</td>
+      <td><input type="text" name="textfield5" id="textfield5" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>District</td>
+      <td><input type="text" name="textfield6" id="textfield6" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>Pincode</td>
+      <td><input type="text" name="textfield7" id="textfield7" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td><input type="text" name="textfield8" id="textfield8" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>Phone</td>
+      <td><input type="text" name="textfield9" id="textfield9" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>Department Name</td>
+      <td><select name="select" id="select" class="form-control" required>
+      </select></td>
+    </tr>
+    <tr>
+      <td colspan="2"><div align="center">
+        <input type="submit" name="button" id="button" value="ADD" class="btn btn-success" />
+      </div></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

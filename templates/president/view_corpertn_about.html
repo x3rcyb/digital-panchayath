@@ -1,0 +1,36 @@
+{% extends 'president/president_index.html' %}
+{% block body %}
+
+<body><form action="/view_corporation_about_search_post" method="post" enctype="multipart/form-data">
+ <table class="pull-right">
+    <tr>
+      <td width="1000px"><input type="text" name="textfield" id="textfield" class="form-control"/></td>
+      <td><input type="submit" name="button" id="button" value="SEARCH" class="btn btn-success"/></td>
+    </tr>
+  </table>
+<br>
+    <table class="table table-striped table-bordered">
+  <tr>
+    <th scope="col">Sl no</th>
+    <th scope="col">Corperation Name</th>
+    <th scope="col">District</th>
+    <th scope="col">State</th>
+    <th scope="col">Email</th>
+    <th scope="col">Phone</th>
+    <th scope="col">About</th>
+  </tr>
+ {% for i in data %}
+    <tr>
+      <td>{{ loop.index }}</td>
+            <td><img src="{{ i['photo'] }}"height="50px"width="60px"><br>{{ i['corporation_name'] }}</td>
+      <td>&nbsp;{{ i['district'] }}</td>
+      <td>&nbsp;{{ i['state'] }}</td>
+      <td>&nbsp;{{ i['email'] }}</td>
+      <td>&nbsp;{{ i['phone'] }}</td>
+      <td>&nbsp;{{ i['about'] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+</form>
+</body>
+{% endblock %}

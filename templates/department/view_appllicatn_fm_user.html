@@ -1,0 +1,34 @@
+{% extends 'department/department_index.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table class="table table-bordered table-striped">
+    <tr>
+      <th scope="col">Sl no</th>
+      <th scope="col">Date</th>
+      <th scope="col">Application Title</th>
+      <th scope="col">Filename</th>
+      <th scope="col">User details</th>
+      <th scope="col">Narration</th>
+      <th scope="col">&nbsp;</th>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>&nbsp;{{ loop.index }}</td>
+      <td>&nbsp;{{ i['date'] }}</td>
+      <td>&nbsp;{{ i['app_title'] }}</td>
+      <td>&nbsp;{{ i['filename'] }}</td>
+      <td>&nbsp;<img src=" {{ i['photo'] }}"height="50px"width="50px"> <br>{{ i['u_name'] }}<br>{{ i['email'] }}<br>{{ i['phone'] }}<br>{{ i['place'] }}</td>
+      <td>&nbsp;{{ i['narration'] }}</td>
+        {% if i['status']=='pending' %}
+      <td><a href="/forward_to_clerk/{{ i['app_id'] }}" class="btn btn-outline-info">Assign</a> </td>
+    {% else %}
+    <td>On Progress</td>
+    {% endif %}
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}

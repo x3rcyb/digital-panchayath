@@ -1,0 +1,49 @@
+{% extends 'admin/admin_index.html' %}
+{% block body %}
+
+<body><form action="/view_mayor_search_post#abc" method="post" enctype="multipart/form-data">
+<table class="pull-right">
+    <tr>
+        <td width="1000px"><input type="text" name="search" id="search" class="form-control"></td>
+        <td><input type="submit" value="search" class="btn btn-success"></td>
+    </tr>
+</table><br>
+<table class="table table-bordered">
+    <thead class="thead-light">
+  <tr style="background-color: #9fcdff">
+    <th scope="col">Slno</th>
+    <th scope="col">Name</th>
+    <th scope="col">gender</th>
+    <th scope="col">DOB</th>
+    <th scope="col">Address</th>
+    <th scope="col">Email</th>
+    <th scope="col">Phone</th>
+    <th scope="col">Year From</th>
+    <th scope="col">Year To</th>
+    <th scope="col">&nbsp;</th>
+    <th scope="col">&nbsp;</th>
+   
+  </tr>
+    </thead>
+    {% for i in data %}
+  <tr>
+    <td>{{ loop.index }}</td>
+    <td>&nbsp;<img src="{{ i['photo'] }}"height="50px"width="50px" ><br>{{ i['p_name'] }}</td>
+    <td>&nbsp;{{ i['gender'] }}</td>
+    <td>&nbsp;{{ i['dob'] }}</td>
+
+    <td>&nbsp;{{ i['houseno_name'] }}<br>{{ i['place'] }}<br>{{ i['city'] }}<br>{{ i['district'] }}<br>{{ i['pincode'] }}</td>
+    <td>&nbsp;{{ i['email'] }}</td>
+    <td>&nbsp;{{ i['phone'] }}</td>
+    <td>&nbsp;{{ i['year_from'] }}</td>
+    <td>&nbsp;{{ i['year_to'] }}</td>
+
+    <td><a href="/edit_mayor/{{ i['mayor_id'] }}"class="btn btn-success">Edit</a></td>
+    <td><a href="/delete_mayor/{{ i['mayor_id'] }}" onclick="return confirm('Do you want delete?')" class="btn btn-danger">Delete</a></td>
+    
+  </tr>
+    {% endfor %}
+</table>
+</form>
+</body>
+{% endblock %}

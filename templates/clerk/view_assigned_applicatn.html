@@ -1,0 +1,32 @@
+{% extends 'clerk/clerk_index.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/forward_to_clk_post#abc">
+  <table class="table table-bordered table-striped">
+    <tr style="background-color: #9fcdff">
+      <th scope="col">Sl no</th>
+      <th scope="col">Date</th>
+      <th scope="col">Application</th>
+      <th scope="col">Filename</th>
+      <th scope="col">User details</th>
+{#      <th scope="col">&nbsp;</th>#}
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>&nbsp;{{ loop.index }}</td>
+      <td>&nbsp;{{ i['date'] }}</td>
+      <td>&nbsp;{{ i['app_title'] }}</td>
+      <td>&nbsp;{{ i['filename'] }}</td>
+      <td>{{ i['u_name'] }}<br>{{ i['email'] }}<br>{{ i['phone'] }}<br>{{ i['place'] }}</td>
+        {% if i['status']=='Assigned' %}
+            <td><a href="/upload_cerificate/{{ i['app_id'] }}" class="btn btn-success"> Upload</a></td>
+        {% else %}
+            <td>{{ i['status'] }}</td>
+        {% endif %}
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'councillor/councilor_index.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table class="table table-bordered table-striped">
+    <tr>
+      <th scope="col">Sl no</th>
+      <th scope="col">Date</th>
+      <th scope="col">Program Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">&nbsp;</th>
+              <th scope="col">&nbsp;</th>
+
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>&nbsp;{{ loop.index }}</td>
+      <td>&nbsp;{{ i['date'] }}</td>
+      <td>&nbsp;{{ i['pgm_name'] }}</td>
+      <td>&nbsp;{{ i['description'] }}</td>
+      <td><a href="/edit_prgm_info/{{ i['pgm_id'] }}" class="btn btn-success">Edit</a></td>
+      <td><a href="/delete_prgm_info/{{ i['pgm_id'] }}" class="btn btn-danger">Delete</a></td>
+
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}

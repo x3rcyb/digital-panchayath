@@ -1,0 +1,23 @@
+{% extends 'department/department_index.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/edit_not_dept_post">
+  <table class="table table-bordered table-stiped">
+    <tr><input type="hidden" name="not_id" value="{{ data['not_id'] }}">
+      <td>Title</td>
+      <td><input type="text" name="textfield" id="textfield" value="{{ data['title'] }}" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>Notification</td>
+      <td><textarea name="textarea" id="textarea" cols="45" rows="5" class="form-control"required>{{ data['notification'] }}</textarea></td>
+    </tr>
+    <tr>
+      <td colspan="2"><div align="center">
+        <input type="submit" name="button" id="button" value="UPDATE" class="btn btn-success" />
+      </div></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

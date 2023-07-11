@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+{% extends 'admin/admin_index.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/add_dept_post">
+<table class="table table-bordered table-striped" >
+    <tr>
+      <td width="250">Department Name</td>
+      <td><input type="text" name="textfield" id="textfield" class="form-control" required/></td>
+
+    </tr>
+    <tr>
+      <td>Head Name</td>
+      <td><input type="text" name="textfield2" id="textfield2" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td><input type="email" name="textfield3" id="textfield3" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>Phone number</td>
+      <td><input type="text" name="textfield4" id="textfield4"class="form-control" required /></td>
+    </tr>
+    <tr>
+      <td colspan="2"><div align="center">
+        <input type="submit" name="button" id="button" value="ADD"class="btn btn-success" />
+      </div></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}
+

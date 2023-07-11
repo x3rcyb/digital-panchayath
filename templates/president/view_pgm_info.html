@@ -1,0 +1,35 @@
+{% extends 'president/president_index.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/view_pgm_info_search_post">
+ <table class="pull-right">
+    <tr>
+      <td width="1000px"><input type="text" name="textfield" id="textfield"class="form-control" /></td>
+      <td><input type="submit" name="button" id="button" value="SEARCH" class="btn btn-success"/></td>
+    </tr>
+  </table>
+<br>
+  <table class="table table-bordered table table-striped">
+    <tr>
+      <th scope="col">Sl no</th>
+      <th scope="col">Date</th>
+      <th scope="col">Program Name</th>
+      <th scope="col">councillor Info</th>
+      <th scope="col">Description</th>
+     
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>&nbsp;{{ loop.index }}</td>
+      <td>&nbsp;{{ i['date'] }}</td>
+      <td>&nbsp;{{ i['pgm_name'] }}</td>
+      <td>&nbsp;{{ i['coun_name'] }}<br>{{ i['email'] }}<br>{{ i['phone'] }}</td>
+        <td>{{ i['description'] }}</td>
+    
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'department/department_index.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="/view_notifctn_frm_mayor_search_post">
+<table class="pull-right">
+  <tr>
+    <th scope="col">From</th>
+    <th scope="col"><input type="date" name="textfield" id="textfield" class="form-control"/></th>
+    <th scope="col">To</th>
+    <th scope="col"><input type="date" name="textfield2" id="textfield2" class="form-control"/></th>
+    <th scope="col"><input type="submit" name="button" id="button" value="SEARCH" class="btn btn-success" /></th>
+  </tr>
+</table><br />
+  <table class="table table-bordered table-striped">
+    <tr>
+      <th scope="col">Sl no</th>
+      <th scope="col">Date</th>
+      <th scope="col">Title</th>
+      <th scope="col">Notification</th>
+      <th scope="col">Mayor information</th>
+    </tr>
+      {% for i in data %}
+    <tr>
+        <td>&nbsp;{{ loop.index }}</td>
+      <td>&nbsp;{{ i['date'] }}</td>
+      <td>&nbsp;{{ i['title'] }}</td>
+
+      <td>&nbsp;{{ i['notification'] }}</td>
+      <td>&nbsp;{{ i['p_name'] }}<br>{{ i['email'] }}<br>{{ i['phone'] }}</td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'clerk/clerk_index.html' %}
+{% block body %}
+
+<body><form action="/upload_certificate_post" method="post" enctype="multipart/form-data">
+    <table class="table table-bordered table-striped">
+        <input type="hidden" name="h1" value="{{ data['app_id'] }}">
+
+  <tr>
+    <td>Title  Name</td>
+    <td><input type="text" name="textfield" id="textfield" class="form-control" required /></td>
+  </tr>
+
+  <tr>
+    <td>Certificate</td>
+    <td><input type="file" name="fileField" id="fileField"class="form-control" required /></td>
+  </tr>
+  <tr>
+    <td colspan="2"><div align="center">
+      <input type="submit" name="button" id="button" value="UPLOAD" class="btn btn-success"/>
+    </div></td>
+    </tr>
+</table>
+</form>
+</body>
+{% endblock %}

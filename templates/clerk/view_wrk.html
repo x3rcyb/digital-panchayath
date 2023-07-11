@@ -1,0 +1,23 @@
+{% extends 'clerk/clerk_index.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="#">
+
+  <table class="table table-bordered table-striped">
+    <tr>
+      <th scope="col">Sl no</th>
+      <th scope="col">Date</th>
+      <th scope="col">Work Details</th>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>&nbsp;{{ loop.index }}</td>
+      <td>&nbsp;{{ i['upload_date'] }}</td>
+      <td>&nbsp;{{ i['w_name'] }}</td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}

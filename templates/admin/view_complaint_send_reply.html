@@ -1,0 +1,46 @@
+{% extends 'admin/admin_index.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/view_comp_search_post#abc">
+ <table class="pull-right">
+  <tr>
+    <td>From </td>
+    <td><input type="date" name="textfield2" id="textfield2" class="form-control" /></td>
+    <td>To</td>
+    <td><input type="date" name="textfield3" id="textfield3" class="form-control" /></td>
+    <td><input type="submit" name="button2" id="button2" value="SEARCH" class="btn btn-success" /></td>
+  </tr>
+</table><br>
+
+
+ <table class="table table-bordered">
+    <thead class="thead-light">
+       <tr style="background-color: #9fcdff">
+      <th scope="col">Sl no</th>
+      <th scope="col">Date</th>
+      <th scope="col">Sender Info</th>
+      <th scope="col">Complaint</th>
+      <th scope="col">status</th>
+      <th scope="col">&nbsp;</th>
+    </tr>
+    </thead>
+      {% for i in data %}
+     <tr>
+      <td>{{ loop.index }}</td>
+      <td>{{ i['date'] }}</td>
+      <td>{{ i['u_name'] }}<br>{{ i['coun_name'] }}</td>
+      <td>{{ i['complaint'] }}</td>
+      <td>{{ i['status'] }}</td>
+        <td>
+            {% if i['status']=='pending' %}
+                  <a href="/sent_reply/{{ i['comp_id']}}" class="btn btn-success">Reply</a>{% else %}{{ i['reply'] }}
+            {% endif %}
+        </td>
+    </tr>
+      {% endfor %}
+
+  </table>
+</form>
+</body>
+{% endblock %}

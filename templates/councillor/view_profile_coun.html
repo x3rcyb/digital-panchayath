@@ -1,0 +1,65 @@
+{% extends 'councillor/councilor_index.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table class="table table-bordered table-striped">
+    <tr><td></td>
+      <td><img src="{{ data['photo'] }}"height="150px"width="20px" class="form-control"></td>
+    </tr>
+    <tr>
+      <td>Name</td>
+      <td>&nbsp;{{ data['coun_name'] }}</td>
+    </tr>
+    <tr>
+      <td>Gender</td>
+      <td>&nbsp;{{ data['gender'] }}</td>
+    </tr>
+    <tr>
+      <td>DOB</td>
+      <td>&nbsp;{{ data['dob'] }}</td>
+    </tr>
+    <tr>
+      <td>Hname</td>
+      <td>&nbsp;{{ data['house_name'] }}</td>
+    </tr>
+    <tr>
+      <td>Place</td>
+      <td>&nbsp;{{ data['place'] }}</td>
+    </tr>
+    <tr>
+      <td>City</td>
+      <td>&nbsp;{{ data['city'] }}</td>
+    </tr>
+    <tr>
+      <td>District</td>
+      <td>&nbsp;{{ data['district'] }}</td>
+    </tr>
+    <tr>
+      <td>Pincode</td>
+      <td>&nbsp;{{ data['pincode'] }}</td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td>&nbsp;{{ data['email'] }}</td>
+    </tr>
+    <tr>
+      <td>Phone Number</td>
+      <td>&nbsp;{{ data['phone'] }}</td>
+    </tr>
+    <tr>
+      <td>Year From</td>
+      <td>&nbsp;{{ data['year_from'] }}</td>
+    </tr>
+    <tr>
+      <td>Year To</td>
+      <td>&nbsp;{{ data['year_to'] }}</td>
+    </tr>
+      <tr>
+      <td>Area</td>
+      <td>&nbsp;{{ data['area_name'] }}</td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

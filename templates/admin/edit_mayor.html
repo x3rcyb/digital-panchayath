@@ -1,0 +1,79 @@
+{% extends 'admin/admin_index.html' %}
+{% block body %}
+
+<body><form action="/edit_mayor_post#abc" method="post" enctype="multipart/form-data"><table class="table table-bordered table-striped" >
+  <tr><input type="hidden"name="mayor_id"value="{{ data['mayor_id'] }}">
+    <td>Name</td>
+    <td><input type="text" name="textfield" id="textfield"value="{{ data['p_name'] }}" class="form-control"required/></td>
+  </tr>
+  <tr>
+    <td>Gender</td>
+    <td><p>
+      <label>
+        <input type="radio" name="RadioGroup1" value="male" id="RadioGroup1_0" {% if data['gender']=='male' %}checked{% endif %} />
+        male</label>
+      <br /><br>
+      <label>
+        <input type="radio" name="RadioGroup1" value="female" id="RadioGroup1_1" {% if data['gender']=='female' %}checked{% endif %} />
+        female</label>
+      <br /><br>
+      <label>
+        <input type="radio" name="RadioGroup1" value="other" id="RadioGroup1_2" {% if data['gender']=='other' %}checked{% endif %} />
+        other</label>
+      <br />
+    </p></td>
+  </tr>
+  <tr>
+    <td>Dob</td>
+    <td><input type="date" name="textfield2" id="textfield2" value="{{ data['dob'] }}" class="form-control"required/></td>
+  </tr>
+  <tr>
+    <td>Photo</td>
+    <td><input type="file" name="fileField" id="fileField"  class="form-control"/></td>
+  </tr>
+  <tr>
+    <td>HouseName</td>
+    <td><input type="text" name="textfield3" id="textfield3" value="{{ data['houseno_name'] }}"class="form-control"required/></td>
+  </tr>
+  <tr>
+    <td>Place</td>
+    <td><input type="text" name="textfield4" id="textfield4" value="{{ data['place'] }}"class="form-control"required/></td>
+  </tr>
+  <tr>
+    <td>City</td>
+    <td><input type="text" name="textfield5" id="textfield5" value="{{ data['city'] }}" class="form-control"required/></td>
+  </tr>
+  <tr>
+    <td>District</td>
+    <td><input type="text" name="textfield6" id="textfield6" value="{{ data['district'] }}"class="form-control"required/></td>
+  </tr>
+  <tr>
+    <td>pincode</td>
+    <td><input type="text" name="textfield7" id="textfield7"value="{{ data['pincode'] }}" class="form-control"required/></td>
+  </tr>
+  <tr>
+    <td>Email</td>
+    <td><input type="email" name="textfield8" id="textfield8"value="{{ data['email'] }}"class="form-control" required/></td>
+  </tr>
+  <tr>
+    <td>Phone number</td>
+    <td><input type="text" name="textfield9" id="textfield9"pattern="[6789][0123456789]{9}" value="{{ data['phone'] }}" class="form-control"/></td>
+  </tr>
+  <tr>
+    <td>Year-from</td>
+    <td><input type="text" name="textfield10" id="textfield10" value="{{ data['year_from'] }}"class="form-control"required/></td>
+  </tr>
+  <tr>
+    <td>Year-to</td>
+    <td><input type="text" name="textfield11" id="textfield11"value="{{ data['year_to'] }}"class="form-control" required/></td>
+  </tr>
+  <tr>
+    <td colspan="2"><div align="center">
+      <input type="submit" name="button" id="button" value="UPDATE" class="btn btn-success"/>
+    </div></td>
+    </tr>
+</table>
+</form>
+</body>
+{% endblock %}
+

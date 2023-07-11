@@ -1,0 +1,42 @@
+{% extends 'admin/admin_index.html' %}
+{% block body %}
+
+<body><form action="/update_corporation_post#abc" method="post" enctype="multipart/form-data"><table class="table table-bordered table-striped" >
+  <tr><input type="hidden"name="about_id"value="{{ data['about_id'] }}">
+    <td width="300px">Corporation Name</td>
+    <td><input type="text" name="textfield" id="textfield" value="{{ data['corporation_name'] }}"class="form-control"required/></td>
+  </tr>
+  <tr>
+    <td>District</td>
+    <td><input type="text" name="textfield2" id="textfield2"value="{{ data['district'] }}" class="form-control"required/></td>
+  </tr>
+  <tr>
+    <td>State</td>
+    <td><input type="text" name="textfield3" id="textfield3"value="{{ data['state'] }}" class="form-control"required/></td>
+  </tr>
+  <tr>
+    <td>Email</td>
+    <td><input type="text" name="textfield4" id="textfield4"value="{{ data['email'] }}"class="form-control"required /></td>
+  </tr>
+  <tr>
+    <td>Phone</td>
+    <td><input type="text" name="textfield5" id="textfield5"pattern="[6789][0123456789]{9}" value="{{ data['phone'] }}"class="form-control"/></td>
+  </tr>
+  <tr>
+    <td>Photo</td>
+    <td><input type="file" name="fileField" id="fileField" class="form-control" /></td>
+  </tr>
+  <tr>
+    <td>About</td>
+    <td><textarea name="textarea" id="textarea" cols="45" rows="5"class="form-control">{{ data['about'] }}</textarea></td>
+  </tr>
+  <tr>
+    <td colspan="2"><div align="center">
+      <input type="submit" name="button" id="button" value="update"class="btn btn-success" />
+    </div></td>
+    </tr>
+</table>
+</form>
+</body>
+{% endblock %}
+

@@ -1,0 +1,53 @@
+{% extends 'president/president_index.html' %}
+{% block body %}
+
+<body><form action="/view_pjct_plan_search_post" method="post">
+  <table class="pull-right">
+  <tr>
+    <td>From </td>
+    <td><input type="date" name="textfield2" id="textfield2" class="form-control"/></td>
+    <td>To</td>
+    <td><input type="date" name="textfield3" id="textfield3" class="form-control" /></td>
+    <td><input type="submit" name="button2" id="button2" value="SEARCH" class="btn btn-success"/></td>
+  </tr>
+</table>
+<br>
+    <table class="table table-bordered table table-striped">
+  <tr>
+    <th scope="col">Sl no</th>
+    <th scope="col">Date</th>
+    <th scope="col">Councellor info</th>
+    <th scope="col">Project Title</th>
+    <th scope="col">Description</th>
+    <th scope="col">Filename</th>
+    <th scope="col">Status</th>
+{#    <th scope="col">&nbsp;</th>#}
+   
+  </tr>
+    {% for i in data %}
+  <tr>
+    <td>&nbsp;{{ loop.index }}</td>
+    <td>&nbsp;{{ i['date'] }}</td>
+    <td>&nbsp;{{ i['coun_name'] }}<br>{{ i['place'] }}<br>{{ i['email'] }}<br>{{ i['phone'] }}</td>
+    <td>&nbsp;{{ i['pjct_title'] }}</td>
+    <td>&nbsp;{{ i['description'] }}</td>
+    <td>&nbsp;{{ i['filename'] }}</td>
+{#    <td>{{ i['status'] }}</td>#}
+{#    <td><a href="/approve_pjct_plan/{{ i['projct_pln_id'] }}" class="btn btn-success">Approve</a></td>#}
+  <td>{% if i['status']=='pending' %}
+  <a href="/approve_pjct_plan/{{ i['projct_pln_id'] }}" class="btn btn-success">Approve</a>{% else %}{{ i['status'] }}
+  {% endif %}</td>
+   
+  </tr>
+
+
+{#         <td>#}
+{#            {% if i['status']=='pending' %}#}
+{#                  <a href="/sent_reply/{{ i['comp_id']}}" class="btn btn-success">Reply</a>{% else %}{{ i['reply'] }}#}
+{#            {% endif %}#}
+{#        </td>#}
+    {% endfor %}
+</table>
+</form>
+</body>
+{% endblock %}

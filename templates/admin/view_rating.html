@@ -1,0 +1,38 @@
+{% extends 'admin/admin_index.html' %}
+{% block body %}
+
+<body><form action="/view_rating_search_post#abc" method="post">
+  <table class="pull-right" table table-bordered>
+  <tr>
+    <td>From </td>
+    <td><input type="date" name="textfield2" id="textfield2" class="form-control" /></td>
+    <td>To</td>
+    <td><input type="date" name="textfield3" id="textfield3" class="form-control" /></td>
+    <td><input type="submit" name="button2" id="button2" value="SEARCH" class="btn btn-success" /></td>
+  </tr>
+</table><br>
+<table class="table table-bordered">
+    <thead class="thead-light">
+  <tr style="background-color: #9fcdff">
+    <th scope="col">Slno</th>
+    <th scope="col">Date</th>
+    <th scope="col">Department Info</th>
+    <th scope="col">Rating</th>
+    <th scope="col">Review</th>
+ 
+  </tr>
+    </thead>
+    {% for i in data %}
+  <tr>
+    <td>&nbsp;{{ loop.index }}</td>
+    <td>&nbsp;{{ i['date'] }}</td>
+    <td>&nbsp;{{ i['dept_name'] }}</td>
+    <td>&nbsp;{{ i['rating'] }}</td>
+    <td>&nbsp;{{ i['review'] }}</td>
+ 
+  </tr>
+    {% endfor %}
+</table>
+</form>
+</body>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'councillor/councilor_index.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+<table class="table table-bordered">
+    <thead class="thead-light">
+    <tr>
+      <th scope="col">Sl no</th>
+      <th scope="col">Date</th>
+      <th scope="col">Complaints</th>
+      <th scope="col">Reply</th>
+        <th>Status</th>
+    </tr>
+    </thead>
+      {% for i in data %}
+    <tr>
+      <td>&nbsp;{{ loop.index }}</td>
+      <td>&nbsp;{{ i['date'] }}</td>
+      <td>&nbsp;{{ i['complaint'] }}</td>
+      <td>&nbsp;{{ i['reply'] }}</td>
+    <td>{{ i['status'] }}</td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}

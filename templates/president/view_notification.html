@@ -1,0 +1,38 @@
+{% extends 'president/president_index.html' %}
+{% block body %}
+
+<body><form action="/view_notification_search_post" method="post">
+ <table class="pull-right">
+  <tr>
+    <td>From </td>
+    <td><input type="date" name="textfield2" id="textfield2" class="form-control" /></td>
+    <td>To</td>
+    <td><input type="date" name="textfield3" id="textfield3" class="form-control" /></td>
+    <td><input type="submit" name="button2" id="button2" value="SEARCH" class="btn btn-success" /></td>
+  </tr>
+</table>
+<br>
+
+    <table class="table table-striped table-bordered" >
+  <tr>
+    <th scope="col">Sl no</th>
+    <th scope="col">Date</th>
+    <th scope="col">Title</th>
+    <th scope="col">Notification</th>
+    <th scope="col">&nbsp;</th>
+    <th scope="col">&nbsp;</th>
+  </tr>
+    {% for i in data %}
+  <tr>
+    <td>&nbsp;{{ loop.index }}</td>
+    <td>&nbsp;{{ i['date'] }}</td>
+    <td>&nbsp;{{ i['title'] }}</td>
+    <td>&nbsp;{{ i['notification'] }}</td>
+    <td><a href="/edit_not/{{ i['not_id'] }}"class="btn btn-success">Edit</a></td>
+    <td><a href="/delete_notif/{{ i['not_id'] }}"onclick="return confirm('Do you want to delete?')" class="btn btn-danger">Delete</a></td>
+  </tr>
+    {% endfor %}
+</table>
+</form>
+</body>
+{% endblock %}

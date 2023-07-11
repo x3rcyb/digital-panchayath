@@ -1,0 +1,35 @@
+{% extends 'department/department_index.html' %}
+{% block body %}
+
+<body>
+<body><form action="/forward_to_clk_post" method="post">
+    <table class="table table-bordered table-striped">
+    <input type="hidden" name="h1" value="{{ p['app_id'] }}">
+  <tr>
+      <th>Application</th>
+      <td>{{ p['app_title'] }}</td>
+  </tr>
+  <tr>
+    <td>Clerk </td>
+    <td><select name="select" id="select" class="form-control">
+        {% for i in data %}
+        <option value="{{ i['clerk_id'] }}">{{ i['c_name'] }}</option>
+        {% endfor %}
+    </select></td>
+  </tr>
+  <tr>
+{#    <td>Application</td>#}
+{#    <td><select name="select2" id="select2"class="form-control">#}
+{#        {% for i in data1 %}#}
+{#        <option value="{{ i['app_id'] }}">{{ i['app_title'] }}</option>#}
+{#        {% endfor %}#}
+{#    </select></td>#}
+{#  </tr>#}
+    <td colspan="2"><div align="center">
+      <input type="submit" name="button" id="button" value="FORWARD"class="btn btn-success" />
+    </div></td>
+    </tr>
+</table>
+</form>
+</body>
+{% endblock %}

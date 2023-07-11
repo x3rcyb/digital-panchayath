@@ -1,0 +1,53 @@
+{% extends 'admin/admin_index.html' %}
+{% block body %}
+
+<body>
+<form action="/view_search_clerk_post#abc" method="post" enctype="multipart/form-data">
+<table class="pull-right">
+    <tr>
+        <td width="1000px"><input type="text" name="search" id="search" class="form-control"></td>
+        <td><input type="submit" value="search" class="btn btn-success"></td>
+    </tr>
+</table><br>
+<table class="table table-bordered">
+    <thead class="thead-light">
+
+        <tr style="background-color: #9fcdff">
+    <th scope="col">Slno</th>
+    <th scope="col">Clerk</th>
+    <th scope="col">gender</th>
+    <th scope="col">DOB</th>
+    <th scope="col">Address</th>
+
+    <th scope="col">Email</th>
+    <th scope="col">Phone</th>
+                <th scope="col">Department&nbsp;</th>
+
+ 
+    <th scope="col">&nbsp;</th>
+    <th scope="col">&nbsp;</th>
+   
+  </tr>
+    </thead>
+    {% for i in data %}
+  <tr align="center">
+    <td>{{ loop.index }}</td>
+    <td> <img src="{{ i['photo'] }}"  width="100px" height="100px"  class="rounded-circle" ><br>{{ i['c_name'] }}</td>
+    <td>&nbsp;{{ i['gender'] }}</td>
+    <td>&nbsp;{{ i['dob'] }}</td>
+    <td>&nbsp;{{ i['house_name'] }},&nbsp;{{ i['place'] }}<br>{{ i['city'] }},{{ i['district'] }},&nbsp;{{ i['pincode'] }} <br></td>
+
+    <td>&nbsp;{{ i['email'] }}  </td>
+    <td>&nbsp;{{ i['phone'] }}</td>
+      <td>{{ i['dept_name'] }}</td>
+{#  #}
+{#    <td><a href="/edit_clerk/{{ i['clerk_id'] }}"class="btn btn-success">Edit</a></td>#}
+{#    <td><a href="/delete_clerk/{{ i['clerk_id'] }}"class="btn btn-danger">Delete</a></td>#}
+    
+  </tr>
+    {% endfor %}
+</table>
+</form>
+</body>
+{% endblock %}
+

@@ -1,0 +1,58 @@
+{% extends 'department/department_index.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/add_create_work_post">
+  <table class="table table-bordered table-striped">
+    <tr>
+      <td>Upload Date</td>
+      <td><input type="date" name="textfield" id="textfield" class="form-control" onchange="h()" required/></td>
+    </tr>
+    <tr>
+      <td>Work Name</td>
+      <td><input type="text" name="textfield2" id="textfield2" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>Clerk name</td>
+      <td><select name="select" id="select" class="form-control">
+          {% for i in data %}
+          <option value="{{ i['lid'] }}">{{ i['c_name'] }}</option>
+          {% endfor %}
+      </select></td>
+    </tr>
+    <tr>
+      <td colspan="2"><div align="center">
+        <input type="submit" name="button" id="button" value="Submit" class="btn btn-success"/>
+      </div></td>
+    </tr>
+  </table>
+</form>
+</body>
+
+
+
+
+
+
+<script>
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()-1;
+var yyyy = today.getFullYear();
+if(dd<10){
+ dd='0'+dd
+}
+if(mm<10){
+ mm='0'+mm
+}
+today = yyyy+'-'+mm+'-'+dd;
+document.getElementById("textfield").setAttribute("min", today);
+function h()
+{
+
+var date=document.getElementById("textfield").value;
+ document.getElementById("datefield2").setAttribute("min", date);
+}
+</script>
+
+{% endblock %}

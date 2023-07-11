@@ -1,0 +1,44 @@
+{% extends 'president/president_index.html' %}
+{% block body %}
+<body><form action="/view_councellor_search_post" method="post" enctype="multipart/form-data">
+  <table class="pull-right">
+    <tr>
+      <td width="1000px"><input type="text" name="textfield" id="textfield" class="form-control"/></td>
+      <td><input type="submit" name="button" id="button" value="SEARCH" class="btn btn-success" /></td>
+    </tr>
+  </table>
+<br>
+    <table class="table table-bordered table table-striped">
+  <tr>
+    <th height="66" scope="col">sl no</th>
+    <th scope="col">Name</th>
+    <th scope="col">Gender</th>
+    <th scope="col">Dob</th>
+    <th scope="col">Address</th>
+
+    <th scope="col">Email</th>
+    <th scope="col">Phone</th>
+    <th scope="col">year from</th>
+    <th scope="col">Year To</th>
+      <th scope="col">Area</th>
+  </tr>
+  {% for i in data %}
+  <tr>
+    <td>{{ loop.index }}</td>
+        <td><img src="{{ i['photo'] }}"height="50px"width="50px"><br>{{ i['coun_name'] }}</td>
+    <td>&nbsp;{{ i['gender'] }}</td>
+    <td>&nbsp;{{ i['dob'] }}</td>
+    <td>&nbsp;{{ i['house_name'] }}<br>&nbsp;{{ i['place'] }}<br>&nbsp;{{ i['city'] }}<br>&nbsp;{{ i['district'] }}<br>&nbsp;{{ i['pincode'] }}</td>
+    <td>&nbsp;{{ i['email'] }}</td>
+    <td>&nbsp;{{ i['phone'] }}</td>
+    <td>&nbsp;{{ i['year_from'] }}</td>
+    <td>&nbsp;{{ i['year_to'] }}</td>
+      <td>{{ i['area_name'] }}</td>
+
+  </tr>
+    {% endfor %}
+</table>
+</form>
+</body>
+{% endblock %}
+

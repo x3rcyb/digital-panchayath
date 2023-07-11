@@ -1,0 +1,19 @@
+{% extends 'councillor/councilor_index.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/action_taken_post">
+  <table class="table table-bordered table striped">
+    <tr><input type="hidden" name="id" value="{{ id }}">
+      <td>Action </td>
+      <td><textarea name="textarea" id="textarea" cols="45" rows="5" class="form-control" required></textarea></td>
+    </tr>
+    <tr>
+      <td colspan="2"><div align="center">
+        <input type="submit" name="button" id="button" value="SEND" class="btn btn-success"/>
+      </div></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'admin/admin_index.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/edit_dept_post#abc">
+<table class="table table-bordered table-striped" >    <tr><input type="hidden"name="dept_id"value="{{ data['dept_id'] }}">
+      <td width="250">Department Name</td>
+      <td><input type="text" name="textfield" id="textfield" value="{{ data['dept_name'] }}" class="form-control"required/></td>
+
+    </tr>
+    <tr>
+      <td>Head Name</td>
+      <td><input type="text" name="textfield2" id="textfield2" value="{{ data['dept_head_name'] }}"class="form-control"required /></td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td><input type="email" name="textfield3" id="textfield3" value="{{ data['dept_email'] }}" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td>Phone number</td>
+      <td><input type="text" name="textfield4" id="textfield4" pattern="[6789][0123456789]{9}"value="{{ data['dept_phone'] }}" class="form-control"required/></td>
+    </tr>
+    <tr>
+      <td colspan="2"><div align="center">
+        <input type="submit" name="button" id="button" value="UPDATE" class="btn btn-success"/>
+      </div></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}
+

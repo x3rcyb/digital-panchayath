@@ -1,0 +1,41 @@
+{% extends 'councillor/councilor_index.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/view_problems_search_post">
+  <table class="pull-right">
+    <tr>
+      <th scope="col">From</th>
+      <th scope="col"><input type="date" name="textfield" id="textfield" class="form-control"/></th>
+      <th scope="col">To</th>
+      <th scope="col"><input type="date" name="textfield2" id="textfield2" class="form-control"/></th>
+      <th scope="col"><input type="submit" name="button" id="button" value="SEARCH" class="btn btn-success"/></th>
+    </tr>
+  </table><br>
+<table class="table table-bordered">
+    <thead class="thead-light">
+    <tr>
+      <th scope="col">Sl no</th>
+      <th scope="col">Date</th>
+      <th scope="col">User Info</th>
+      <th scope="col">Problem Title</th>
+      <th scope="col">Description</th>
+        <th>status</th>
+        <th></th>
+    </tr>
+    </thead>
+      {% for i in data %}
+    <tr>
+      <td>&nbsp;{{ loop.index }}</td>
+      <td>&nbsp;{{ i['date'] }}</td>
+      <td>&nbsp;{{ i['u_name'] }}<br>{{ i['email'] }}<br>{{ i['phone'] }}</td>
+      <td>&nbsp;{{ i['pblm_title'] }}</td>
+      <td>&nbsp;{{ i['description'] }}</td>
+        <td>{{ i['status'] }}</td>
+      <td>{% if i['status']=='pending' %}<a href="/action_taken/{{ i['pblm_id'] }}" class="btn btn-success">Action</a>{% else %}{{ i['actiontaken'] }}{% endif %}</td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}

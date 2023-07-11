@@ -1,0 +1,19 @@
+{% extends 'admin/admin_index.html' %}
+{% block body %}
+
+<body><form action="/edit_area_post#abc" method="post">    <table class="table table-striped">
+
+  <tr><input type="hidden"name="area_id" value="{{ data['area_id'] }}">
+    <td>Area Name</td>
+    <td><input type="text" name="textfield" id="textfield" value="{{ data['area_name'] }}"class="form-control" required /></td>
+  </tr>
+  <tr>
+    <td colspan="2"><div align="center">
+      <input type="submit" name="button" id="button" value="update" class="btn btn-success" />
+    </div></td>
+    </tr>
+</table>
+</form>
+</body>
+{% endblock %}
+

@@ -1,0 +1,40 @@
+{% extends 'councillor/councilor_index.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/view_created_pjct_sta_post">
+ <table class="pull-right table table-bordered">
+    <tr>
+      <th scope="col">From</th>
+      <th scope="col"><input type="date" name="textfield" id="textfield" class="form-control" /></th>
+      <th scope="col">To</th>
+      <th scope="col"><input type="date" name="textfield2" id="textfield2" class="form-control"/></th>
+      <th scope="col"><input type="submit" name="button" id="button" value="SEARCH" class="btn btn-success" /></th>
+    </tr>
+  </table>
+<br>
+<table class="table table-bordered">
+    <thead class="thead-light">
+    <tr>
+      <th width="17" scope="col">Sl no</th>
+      <th width="33" scope="col">Date</th>
+      <th width="30" scope="col">Project Title</th>
+      <th width="77" scope="col">Description</th>
+      <th width="53" scope="col">File name</th>
+      <th width="78" scope="col">Status</th>
+    </tr>
+    </thead>
+      {% for i in data %}
+    <tr>
+      <td>&nbsp;{{ loop.index }}</td>
+      <td>&nbsp;{{ i['date'] }}</td>
+      <td>&nbsp;{{ i['pjct_title'] }}</td>
+      <td>&nbsp;{{ i['description'] }}</td>
+      <td>&nbsp;{{ i['filename'] }}</td>
+      <td>&nbsp;{{ i['status'] }}</td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}

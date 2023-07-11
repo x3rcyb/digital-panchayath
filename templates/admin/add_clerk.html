@@ -1,0 +1,85 @@
+{% extends 'admin/admin_index.html' %}
+{% block body %}
+
+<body><form action="/add_clerk_post" method="post" enctype="multipart/form-data">
+    <table class="table table-bordered table-striped" >
+{#    <table class="table table-striped">#}
+        <tr>
+    <td width="10px">Name</td>
+    <td><input type="text" name="textfield" id="textfield" class="form-control" required/></td>
+  </tr>
+  <tr>
+    <td>Gender</td>
+    <td><p>
+      <label>
+        <input type="radio" name="RadioGroup1" value="male" id="RadioGroup1_0" checked  />
+        male</label>
+      <br /><br>
+      <label>
+        <input type="radio" name="RadioGroup1" value="female" id="RadioGroup1_1" />
+        female</label>
+      <br /><br>
+      <label>
+        <input type="radio" name="RadioGroup1" value="other" id="RadioGroup1_2" />
+        other</label>
+      <br />
+    </p></td>
+  </tr>
+  <tr>
+    <td>Dob</td>
+    <td><input type="date" name="textfield2" id="textfield2"  class="form-control" required/></td>
+  </tr>
+  <tr>
+    <td>Photo</td>
+    <td><input type="file" name="fileField" id="fileField" class="form-control" required/></td>
+  </tr>
+  <tr>
+    <td>HouseName</td>
+    <td><input type="text" name="textfield3" id="textfield3" class="form-control" required/></td>
+  </tr>
+  <tr>
+    <td>Place</td>
+    <td><input type="text" name="textfield4" id="textfield4" class="form-control" required /></td>
+  </tr>
+  <tr>
+    <td>City</td>
+    <td><input type="text" name="textfield5" id="textfield5"  class="form-control" required/></td>
+  </tr>
+  <tr>
+    <td>District</td>
+    <td><input type="text" name="textfield6" id="textfield6"  class="form-control"required /></td>
+  </tr>
+  <tr>
+    <td>pincode</td>
+    <td><input type="text" name="textfield7" id="textfield7"  class="form-control" required/></td>
+  </tr>
+  <tr>
+    <td>Email</td>
+    <td><input type="email" name="textfield8" id="textfield8" class="form-control" required /></td>
+  </tr>
+  <tr>
+    <td>Phone number</td>
+    <td><input type="text" name="textfield9" id="textfield9" required pattern="[6789][0123456789]{9}" class="form-control" /></td>
+  </tr>
+  <tr>
+      <td>Department</td>
+      <td width="80"><select name="select" id="select" class="form-control" required>
+
+          {% for i in data %}
+          <option value="{{ i['deplid'] }}">{{ i['dept_name'] }}</option>
+          {% endfor %}
+      </select></td>
+
+  </tr>
+
+  <tr>
+    <td colspan="2"><div align="center">
+      <input type="submit" name="button" id="button" value="ADD"class="btn btn-success" />
+    </div></td>
+    </tr>
+</table>
+</form>
+</body>
+
+{% endblock %}
+

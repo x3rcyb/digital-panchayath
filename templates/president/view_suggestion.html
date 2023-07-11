@@ -1,0 +1,34 @@
+{% extends 'president/president_index.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/view_suggesion_post">
+  <table class="pull-right">
+  <tr>
+    <td>From </td>
+    <td><input type="date" name="textfield2" id="textfield2" class="form-control"/></td>
+    <td>To</td>
+    <td><input type="date" name="textfield3" id="textfield3" class="form-control" /></td>
+    <td><input type="submit" name="button2" id="button2" value="SEARCH" class="btn btn-success" /></td>
+  </tr>
+</table>
+<br>
+  <table class="table table-bordered table table-striped">
+    <tr>
+      <th scope="col">Sl no</th>
+      <th scope="col">Date</th>
+      <th scope="col">Councellor Info</th>
+      <th scope="col">Suggestions</th>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>&nbsp;{{ loop.index }}</td>
+      <td>&nbsp;{{ i['date'] }}</td>
+      <td>&nbsp;{{ i['coun_name'] }}<br>{{ i['place'] }}<br>{{ i['email'] }}</td>
+      <td>&nbsp;{{ i['suggestion'] }}</td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}

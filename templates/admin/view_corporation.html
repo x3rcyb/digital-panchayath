@@ -1,0 +1,40 @@
+{% extends 'admin/admin_index.html' %}
+{% block body %}
+
+<body><form action="/view_corporation_search_post#abc" method="post" enctype="multipart/form-data">
+<table class="pull-right">
+    <tr>
+        <td width="1000px"><input type="text" name="search" id="search" class="form-control"></td>
+        <td><input type="submit" value="search" class="btn btn-success"></td>
+    </tr>
+</table><br>
+ <table class="table table-bordered">
+    <thead class="thead-light">
+    <tr style="background-color: #9fcdff">
+      <th scope="col">Slno</th>
+      <th scope="col">Corporation Name</th>
+      <th scope="col">District</th>
+      <th scope="col">State</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+      <th scope="col">About</th>
+      <th scope="col">&nbsp;</th>
+    </tr>
+    </thead>
+      {% for i in data %}
+    <tr>
+      <td>{{ loop.index }}</td>
+      <td><img src="{{ i['photo'] }}"height="50px"width="60px"><br>&nbsp;{{ i['corporation_name'] }}<br> </td>
+      <td>&nbsp;{{ i['district'] }}</td>
+      <td>&nbsp;{{ i['state'] }}</td>
+      <td>&nbsp;{{ i['email'] }}</td>
+      <td>&nbsp;{{ i['phone'] }}</td>
+      <td>&nbsp;{{ i['about'] }}</td>
+      <td><a href="/update_corporation/{{ i['about_id'] }}"class="btn btn-success">Update</a></td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}
+
